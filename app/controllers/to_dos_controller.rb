@@ -1,5 +1,5 @@
 class ToDosController < ApplicationController
-  before_action :set_to_do, only: %i[ show update destroy ]
+  before_action :set_to_do, only: %i[ show update update_completed destroy ]
 
   # GET /to_dos
   def index
@@ -27,6 +27,15 @@ class ToDosController < ApplicationController
   # PATCH/PUT /to_dos/1
   def update
     if @to_do.update(to_do_params)
+      render json: @to_do
+    else
+      render json: @to_do.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /to_dos/1
+  def update_completed
+    if @todo.update(completed: params[:completed])
       render json: @to_do
     else
       render json: @to_do.errors, status: :unprocessable_entity
