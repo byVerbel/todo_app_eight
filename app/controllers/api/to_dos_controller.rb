@@ -3,7 +3,7 @@ class Api::ToDosController < ApplicationController
 
   # GET /to_dos
   def index
-    @to_dos = ToDo.all
+    @to_dos = ToDo.order(created_at: :desc)
 
     render json: @to_dos
   end
