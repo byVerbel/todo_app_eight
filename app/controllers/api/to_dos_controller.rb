@@ -1,4 +1,4 @@
-class ToDosController < ApplicationController
+class Api::ToDosController < ApplicationController
   before_action :set_to_do, only: %i[ show update update_completed destroy ]
 
   # GET /to_dos
@@ -18,7 +18,7 @@ class ToDosController < ApplicationController
     @to_do = ToDo.new(to_do_params)
 
     if @to_do.save
-      render json: @to_do, status: :created, location: @to_do
+      render json: @to_do, status: :created
     else
       render json: @to_do.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class ToDosController < ApplicationController
 
   # PATCH/PUT /to_dos/1
   def update_completed
-    if @todo.update(completed: params[:completed])
+    if @to_do.update(completed: params[:completed])
       render json: @to_do
     else
       render json: @to_do.errors, status: :unprocessable_entity
