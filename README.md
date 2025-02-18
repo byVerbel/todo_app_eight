@@ -12,6 +12,8 @@ I'm already a Ssr Backend Developer with Rails, but I want to take it to the nex
 3. Installed Postgres.
 4. Created a new Rails application.
 5. Scaffold ToDo model.
+6. Migrate database.
+7. Test first `rails server`.
 
 # How to use?
 Just clone the repository and initialize Rails in your terminal.
